@@ -31,7 +31,7 @@
                     </div>
                     <div class="car_model-mark" align="right">
                         {% for mark in marks %}
-                            {% if mark.id == model.mark_id %}
+                            {% if mark.id == car_model.mark_id %}
                                 {{ mark.name }}
                             {% endif %}
                         {% endfor %}

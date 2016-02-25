@@ -16,7 +16,7 @@ marks_and_car_models = [
     ['Sentra','Nissan'],
     ['Almera','Nissan'],
     ['Teana','Nissan'],
-    ['Skyline','Nisan'],
+    ['Skyline','Nissan'],
     ['Camaro','Chevrolet'],
     ['Tahoe','Chevrolet'],
     ['Chevelle','Chevrolet'],

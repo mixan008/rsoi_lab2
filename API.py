@@ -8,6 +8,7 @@ from flask_bootstrap import Bootstrap
 from flask_login import login_user, logout_user, login_required, current_user, UserMixin, LoginManager
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import Column,Integer,ForeignKey,String,DateTime
 from flask_wtf import Form
 from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, ValidationError
@@ -21,6 +22,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'da
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config["JSON_SORT_KEYS"] = True
+#app.config['SQLALCHEMY_NATIVE_UNICODE'] = False
 
 bootstrap = Bootstrap(app)
 moment = Moment(app)
