@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}Car catalogue{% endblock %}
+
+{% block page_content %}
+    {#<div class="page-header">#}
+    {#    <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>#}
+    {#    {% if not known %}#}
+    {#    <p>Pleased to meet you!</p>#}
+    {#    {% else %}#}
+    {#    <p>Happy to see you again!</p>#}
+    {#    {% endif %}#}
+    {#</div>#}
+    <div class="page-header">
+        <h1>Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h1>
+        {% if current_user.is_authenticated %}
+            <div>
+                {{ wtf.quick_form(form) }}
+            </div>
+        {% endif %}
+    </div>
+    <h1 class="aq">Find your adorable car</h1>
+    <ul class="car_models">
+        {% for car_model in car_models %}
+            <li class="car_model">
+                <div class="car_model-content">
+                    <div class="car_model-body">
+                        {{ car_model.car_model }}
+                    </div>
+                    <div class="car_model-mark" align="right">
+                        {% for mark in marks %}
+                            {% if mark.id == model.mark_id %}
+                                {{ mark.name }}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    {% if pagination %}
+        <div class="pagination">
+            {{ macros.pagination_widget(pagination, '.index') }}
+        </div>
+    {% endif %}
+{% endblock %}

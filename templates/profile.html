@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Profile{% endblock %}
+
+{% block page_content %}
+    <div class="page-header">
+        <h1>Profile</h1>
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <ul class="profile-list">
+            <li><strong>Username</strong>: {{ current_user.username }}</li>
+            <li><strong>E-mail</strong>: {{ current_user.email }}</li>
+            <li><strong>client_id</strong>: {{ current_user.client_id }} </li>
+            <li><strong>client_secret</strong>: {{ current_user.client_secret }}</li>
+            <li><strong>redirect_uri</strong>: {{ current_user.redirect_uri }}</li>
+        </ul>
+{#        {{ wtf.quick_form(form) }}#}
+    </div>
+{% endblock %}
